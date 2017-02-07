@@ -25,11 +25,13 @@ public class Cliente {
 		List<Cerveja> cervejasList = new ArrayList<>();
 		
 		for (Link link : cervejas.getLinks()) {
-			Cerveja cerveja = ClientBuilder.newClient().invocation(link)
+			String cerveja = ClientBuilder.newClient().invocation(link)
 					.accept(MediaType.APPLICATION_XML)
-					.get(Cerveja.class);
+					.get(String.class); //define o tipo de retorno da requisição != MIME Type
 			
-			cervejasList.add(cerveja);
+//			cervejasList.add(cerveja);
+			
+			System.out.println(cerveja);
 		}
 		
 	}
